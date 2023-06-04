@@ -144,7 +144,7 @@ with tab2:
 
     st.write('')
 
-    st.warning('##### Menambak Kolom Average')
+    st.warning('##### Menambah Kolom Average')
     st.write("""
         {
 
