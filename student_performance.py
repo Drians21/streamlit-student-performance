@@ -558,7 +558,8 @@ with tab3:
   
     st.write('Classification Report')
     st.code(classification_report(y_test,y_pred))
-    
+ 
+with tab5:
     st.write('')
     st.title('Kesimpulan')
     st.write(""" 
@@ -578,7 +579,7 @@ with tab3:
 
       
       }
-    """")
+    """)
 
 
     
