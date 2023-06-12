@@ -244,6 +244,51 @@ with tab2:
     plt.title('Correlation between features')
     st.pyplot(plt)
     
+    st.write('')
+    education_order = CategoricalDtype(categories=[
+        'some high school',
+        'high school',
+        'some college',
+        'associate\'s degree',
+        'bachelor\'s degree',
+        'master\'s degree'
+    ], ordered=True)
+    prep_mapping = {
+            'completed': 1,
+            'none': 0,
+        }
+    gender_mapping = {
+        'male': 0,
+        'female': 1,
+        }
+    lunch_mapping = {
+        'standard': 1,
+        'free/reduced': 0,
+        }
+    ethnicity_mapping = {
+        'group A' : 0,
+        'group B' : 1,
+        'group C' : 3,
+        'group D' : 4,
+        'group E' : 5
+    }
+    data_ethnicity = df['ethnicity'].map(ethnicity_mapping)
+    # data_ethnicity
+
+
+    # Gabungkan kolom-kolom kategorikal menjadi satu DataFrame
+    combined_df = pd.concat([data_lunch, data_prep, data_gender, data_parent, data_ethnicity, df['average_score']], axis=1)
+    combined_df
+
+    # Hitung korelasi menggunakan metode Pearson
+    correlation_matrix = combined_df.corr(method='pearson')
+
+    # Plot heatmap korelasi
+    plt.figure(figsize=(10, 6))
+    sns.heatmap(correlation_matrix, annot=True, cmap='viridis')
+    plt.title('Categorical Correlation Heatmap')
+    st.pyplot(plt)
+    
 
 with tab3:
     
