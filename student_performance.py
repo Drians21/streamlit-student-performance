@@ -175,8 +175,8 @@ with tab2:
     # """)
     # st.write(df)
     st.write('')
-    st.warning('Jumlah Antara Tespreparation')
-    test_preparation = df.groupby('prep_course')['average_score'].count()
+    st.warning('Test Preparation')
+    test_preparation = df.groupby('prep_course')['prep_course'].count()
     test_preparation
 
     plt.figure(figsize=(4,4))
@@ -185,7 +185,7 @@ with tab2:
     st.pyplot(plt)
 
     st.write('')
-    st.warning('Jumlah Antara Gender')
+    st.warning('Gender')
     test_preparation = df.groupby('gender').count()
     test_preparation
 
