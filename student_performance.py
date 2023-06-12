@@ -34,7 +34,7 @@ with tab1:
     st.write('')
     st.write(df)
 
-# 8 Prediksi
+# 8 klasifikasi
 with tab4:
     # Define independent variables (factors) and target variable (performance_level)
     X = df[['gender','parent_education', 'lunch', 'prep_course']]
@@ -60,7 +60,7 @@ with tab4:
     accuracy = accuracy_score(y_test, y_pred)
 
     # Judul halaman
-    st.title('Prediksi Performa Siswa')
+    st.title('Klasifikasi Performa Siswa')
 
     st.write('Model : Random Forest')
     st.write('Nilai Akurasi Prediksi : ', accuracy)
@@ -186,7 +186,7 @@ with tab2:
 
     st.write('')
     st.warning('Gender')
-    test_preparation = df.groupby('gender').count()
+    test_preparation = df.groupby('gender')['gender'].count()
     test_preparation
 
     plt.figure(figsize=(4,4))
@@ -195,8 +195,8 @@ with tab2:
     st.pyplot(plt)
 
     st.write('')
-    st.warning('Jumlah Antara ethnicity')
-    test_preparation = df.groupby('ethnicity').count()
+    st.warning('Ethnicity')
+    test_preparation = df.groupby('ethnicity')['ethnicity'].count()
     test_preparation
 
     plt.figure(figsize=(4,4))
@@ -205,8 +205,8 @@ with tab2:
     st.pyplot(plt)
 
     st.write('')
-    st.warning('Jumlah Antara Lunch')
-    test_preparation = df.groupby('lunch').count()
+    st.warning('Lunch')
+    test_preparation = df.groupby('lunch')['lunch'].count()
     test_preparation
 
     plt.figure(figsize=(4,4))
@@ -215,8 +215,8 @@ with tab2:
     st.pyplot(plt)
 
     st.write('')
-    st.warning('Jumlah Antara Parent Education')
-    test_preparation = df.groupby('parent_education').count()
+    st.warning('Parent Education')
+    test_preparation = df.groupby('parent_education')['parent_education'].count()
     test_preparation
 
     education_order = CategoricalDtype(categories=[
