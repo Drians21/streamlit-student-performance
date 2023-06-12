@@ -47,7 +47,7 @@ with tab4:
     X = pd.get_dummies(X)
 
     # Split data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=2)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Build KNeighborsClassifier model
     model = RandomForestClassifier()
