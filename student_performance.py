@@ -24,7 +24,7 @@ df = df.rename({'parental_level_of_education':'parent_education',
 df['average_score'] = df[['math_score', 'reading_score', 'writing_score']].mean(axis=1)
 
 
-tab1, tab2, tab3, tab4 = st.tabs(['| Data :clipboard: |', '| EDA :weight_lifter: |', '| Pertanyaan :coffee: |', '| Prediksi :chart_with_upwards_trend: |'])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(['| Data :clipboard: |', '| EDA :weight_lifter: |', '| Pertanyaan :coffee: |', '| Prediksi :chart_with_upwards_trend: |', '| Kesimpulan |'])
 with tab1:
     st.header("Student Performance Dataset")
     st.write("""
@@ -558,6 +558,27 @@ with tab3:
   
     st.write('Classification Report')
     st.code(classification_report(y_test,y_pred))
+    
+    st.write('')
+    st.title('Kesimpulan')
+    st.write(""" 
+      {
+      
+          
+          Korelasi Positif
+          Korelasi antara variabel dependen dengan independen semunya bernilai positif yang artinya semakin besar variabel dependen maka semakin besar juga variabel independennya. Korelasi yang kami gunakan adalah korelasi pearson dan spearman. Berikut variabel yang kami gunakan :
+          -	Gender 
+          -	Parent_education
+          -	Lunch
+          -	Prep_course
+          Dengan variabel independennya :
+          -	Average_score
+          Hasil klasifikasi
+          Dengan Random Forest, Akurasi klasifikasi yang kami dapatkan yaitu 0.64 / 64% dengan feature importance paling tinggi adalah lunch, kemudian prep_test lalu diikuti variabel lainnya. Maka dari itu untuk lunch harus dan prep_test harus karena banyak mempengaruhi hasil prediksi.
+
+      
+      }
+    """")
 
 
     
